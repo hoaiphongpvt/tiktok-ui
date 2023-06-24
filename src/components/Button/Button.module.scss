@@ -1,0 +1,78 @@
+.wrapper {
+    font-family: 'ProximaNova', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    min-width: 100px;
+    padding: 9px 16px;
+    border-radius: 4px;
+    background-color: var(--white);
+    border: 1px solid transparent;
+    user-select: none;
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+.primary {
+    color: var(--white);
+    background-color: var(--primary);
+
+    &:hover {
+        cursor: pointer;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),#FE2C55;
+    }
+}
+
+.outline {
+    color: var(--primary);
+    border-color: rgba(254, 44, 85, 1);
+    background-color: rgba(255, 255, 255, 1);
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.small {
+    min-width: 88px;
+    padding: 4px 16px;
+}
+
+.large {
+    min-width: 140px;
+    padding: 14px 16px;
+}
+
+.withIcon {
+    border-color: rgba(22, 24, 35, 0.12);
+
+    &:hover {
+        background-color: rgba(22, 24, 35, .03);
+    }
+}
+
+.withIcon span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 12px;
+
+    svg {
+        min-width: 20px;
+    }
+}
+
+.rounded {
+    color:rgba(22, 24, 35, .75);
+    border-radius: 999px;
+    border-color: rgba(22, 24, 35, .12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+    &:hover {
+        border-color: rgba(22, 24, 35, .2);
+        background-color: rgba(255, 255, 255, 1);
+    }
+}
