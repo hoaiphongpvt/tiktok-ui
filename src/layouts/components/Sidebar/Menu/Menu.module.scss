@@ -1,0 +1,30 @@
+.menu {
+    margin-bottom: 8px;
+}
+
+.menu-item {
+    max-width: 224px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color ease-in-out 200ms;
+
+    &.active {
+        color: var(--primary);
+    }
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.title {
+    color: currentColor;
+    font-family: ProximaNova,Arial,Tahoma,PingFangSC,sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    margin-left: 12px;
+    margin-top: 4px;
+}

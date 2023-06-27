@@ -23,6 +23,7 @@
 .header {
     position: relative;
     height: 50px;
+    flex-shrink: 0;
 } 
 
 .back-btn {
@@ -37,4 +38,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.menu-body {
+    overflow-y: auto;
 }

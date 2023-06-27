@@ -2,22 +2,28 @@ import classNames from "classnames/bind";
 import style from './AccountItem.module.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" 
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons"
+import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const cx = classNames.bind(style)
 
-function AccountItem() {
+function AccountItem({ data }) {
     return ( 
-        <div className={cx('wrapper')}> 
-            <img className={cx('avatar')} src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/240cbf5c34172011e3b3fde82814c900~c5_100x100.jpeg?x-expires=1687672800&x-signature=IoDETGjJIlA3Nmw6qusROsNVyMs%3D"></img>
+        <Link to={`/@${data.nickname}`} className={cx('wrapper')}> 
+            <img className={cx('avatar')} src={data.avatar} alt={data.full_name}></img>
             <div className={cx('info')}>
                 <p className={cx('name')}>
-                    <span>Nguyễn Văn A</span>
-                    <FontAwesomeIcon className={cx('check-icon')} icon={faCheckCircle }/>
+                    <span>{data.full_name}</span>
+                    {data.tick && <FontAwesomeIcon className={cx('check-icon')} icon={faCheckCircle }/>}
                 </p>
-                <span className={cx('username')}>nguyenvana</span>
+                <span className={cx('username')}>{data.nickname}</span>
             </div>
-        </div>
+        </Link>
     );
+}
+
+AccountItem.propTypes = {
+    data: PropTypes.object.isRequired
 }
 
 export default AccountItem;

@@ -1,18 +1,17 @@
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import style from './Header.module.scss'
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faSpinner, faSearch, faPlus, faEllipsisVertical, faLanguage, faKeyboard, faCoins, faGear, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faEllipsisVertical, faLanguage, faKeyboard, faCoins, faGear, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faPaperPlane, faMessage, faUser, faBookmark } from '@fortawesome/free-regular-svg-icons';
-import HeadlessTippy from '@tippyjs/react/';
 import Tippy from '@tippyjs/react/';
 import 'tippy.js/dist/tippy.css'; // optional
+import config from '~/config/'
 
-import { useEffect, useState } from 'react';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import Search from '../Search';
 
 const cx = classNames.bind(style)
 const MENU_ITEMS = [
@@ -36,6 +35,36 @@ const MENU_ITEMS = [
                     type: 'language',
                     code: 'spa',
                     title: 'Spanish'
+                },
+                {
+                    type: 'language',
+                    code: 'kor',
+                    title: 'Korean'
+                },
+                {
+                    type: 'language',
+                    code: 'ja',
+                    title: 'Japanese'
+                },
+                {
+                    type: 'language',
+                    code: 'tha',
+                    title: 'Thai'
+                },
+                {
+                    type: 'language',
+                    code: 'fli',
+                    title: 'Filipino'
+                },
+                {
+                    type: 'language',
+                    code: 'fre',
+                    title: 'French'
+                },
+                {
+                    type: 'language',
+                    code: 'rus',
+                    title: 'Russian'
                 }
             ]
         }
@@ -53,7 +82,6 @@ const MENU_ITEMS = [
 
 function Header() {
 
-    const [searchResult, setSearchResult] = useState([])
 
     const handleMenuChange = (menuItem) => {
         switch(menuItem.type) {
@@ -100,37 +128,12 @@ function Header() {
     return <header className={cx('wrapper')}>
         <div className={cx('inner')}>
             <div className={cx('logo')}>
-                <img src={images.logo} alt="Tiktok"/>   
+                <Link to={config.routes.home} className={cx('logo-link')}>
+                    <img src={images.logo} alt="Tiktok" />
+                </Link>
             </div>
-            <HeadlessTippy 
-                visible={searchResult.length > 0}
-                interactive={true}
-                render={attrs => (
-                   
-                        <div className={cx('search-result')} tabIndex="-1"  {...attrs}>
-                             <PopperWrapper>
-                                <h3 className={cx('search-title')}>Accounts</h3>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                             </PopperWrapper>
-                        </div>
-                )}
-            >
-                <div className={cx('search')}>
-                    <input placeholder='Search accounts and videos' spellCheck={false}/>
-
-                    <button className={cx('clear')}>
-                        <FontAwesomeIcon icon={faTimes} />
-                    </button>
-                    {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner}/> */}
-
-                    <button className={cx('search-btn')}>
-                        <FontAwesomeIcon icon={faSearch} />
-                    </button>  
-                </div>
-            </HeadlessTippy>
+            
+            <Search />
 
             <div className={cx('actions')}>
                 {currentUser ? (
