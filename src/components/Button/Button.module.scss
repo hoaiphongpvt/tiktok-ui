@@ -21,7 +21,7 @@
 
     &:hover {
         cursor: pointer;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),#FE2C55;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
     }
 }
 
@@ -37,6 +37,7 @@
 }
 
 .small {
+    height: 28px;
     min-width: 88px;
     padding: 4px 16px;
 }
@@ -50,7 +51,7 @@
     border-color: rgba(22, 24, 35, 0.12);
 
     &:hover {
-        background-color: rgba(22, 24, 35, .03);
+        background-color: rgba(22, 24, 35, 0.03);
     }
 }
 
@@ -66,13 +67,13 @@
 }
 
 .rounded {
-    color:rgba(22, 24, 35, .75);
+    color: rgba(22, 24, 35, 0.75);
     border-radius: 999px;
-    border-color: rgba(22, 24, 35, .12);
+    border-color: rgba(22, 24, 35, 0.12);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 
     &:hover {
-        border-color: rgba(22, 24, 35, .2);
+        border-color: rgba(22, 24, 35, 0.2);
         background-color: rgba(255, 255, 255, 1);
     }
 }
